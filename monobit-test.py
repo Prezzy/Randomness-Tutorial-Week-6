@@ -1,5 +1,6 @@
 import sys
 import math
+from scipy import special
 
 def main():
 
@@ -27,7 +28,7 @@ def main():
 
             teststat = abs(S)/math.sqrt(length)
 
-            pvalue = teststat/math.sqrt(2)
+            pvalue = special.erfc(teststat/math.sqrt(2))
 
             if pvalue < alpha:
                 testresults.append(0)
